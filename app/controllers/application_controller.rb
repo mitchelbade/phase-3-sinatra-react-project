@@ -29,7 +29,7 @@ class ApplicationController < Sinatra::Base
 
   get '/vehicle_models' do
     vehicle_models = VehicleModel.all 
-    vehicle_models.to_json 
+    vehicle_models.to_json
   end
 
   post '/vehicle_models/new' do 

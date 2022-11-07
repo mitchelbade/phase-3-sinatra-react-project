@@ -1,12 +1,12 @@
 class Manufacturer < ActiveRecord::Base 
-    has_many :vehicle_models
+    has_many :vehicles
 
     def oldest
-        VehicleModel.oldest(self.id).first
+        Vehicle.oldest(self.id).first
     end
 
     def newest
-        VehicleModel.newest(self.id).first
+        Vehicle.newest(self.id).first
     end
 
 end

@@ -9,7 +9,7 @@ class ApplicationController < Sinatra::Base
   get '/manufacturers' do
     manufacturers = Manufacturer.all
     # binding.pry
-    manufacturers.to_json(include: [:vehicle_models])
+    manufacturers.to_json(include: [:vehicles])
   end
 
   post '/manufacturers/new' do 
@@ -27,13 +27,13 @@ class ApplicationController < Sinatra::Base
     manufacturer.to_json
   end
 
-  get '/vehicle_models' do
-    vehicle_models = VehicleModel.all 
-    vehicle_models.to_json
+  get '/vehicles' do
+    vehicles = Vehicle.all 
+    vehicles.to_json
   end
 
-  post '/vehicle_models/new' do 
-    vehicle_model = VehicleModel.create(
+  post '/vehicles/new' do 
+    vehicle = Vehicle.create(
       name: params[:name],
       type: params[:type],
       years_made: params[:years_made],
@@ -41,21 +41,21 @@ class ApplicationController < Sinatra::Base
     )
   end
 
-  patch '/vehicle_models/:id' do
-    vehicle_model = VehicleModel.find(params[:id])
-    vehicle_model.update(
+  patch '/vehicles/:id' do
+    vehicle = Vehicle.find(params[:id])
+    vehicle.update(
       name: params[:name],
       type: params[:type],
       years_made: params[:years_made],
       description: params[:description],
     )
-    vehicle_model.to_json
+    vehicle.to_json
   end
 
-  delete '/vehicle_models' do
-    vehicle_model = VehicleModel.find(params[:id])
-    vehicle_model.destroy
-    vehicle_model.to_json
+  delete '/vehicles' do
+    vehicle = Vehicle.find(params[:id])
+    vehicle.destroy
+    vehicle.to_json
   end
 
 end

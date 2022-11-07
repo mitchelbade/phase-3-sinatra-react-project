@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2022_11_06_202737) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "vehicle_models", force: :cascade do |t|
+  create_table "vehicles", force: :cascade do |t|
     t.string "name"
     t.string "body_type"
     t.integer "years_made"

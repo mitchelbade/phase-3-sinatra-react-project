@@ -34,7 +34,7 @@ puts "🌱 Seeding spices..."
 
     Manufacturer.all.each do |manufacturer|
         3.times do
-            VehicleModel.create(
+            Vehicle.create(
                 name: Faker::Vehicle.model, 
                 body_type: Faker::Vehicle.car_type, 
                 years_made: Faker::Vehicle.year, 
@@ -50,6 +50,6 @@ puts "✅ Done seeding!"
 #     manufacturer.destroy
 # end
 
-# VehicleModel.all.each do |vehicle_model|
-#     vehicle_model.destroy
+# Vehicle.all.each do |vehicle|
+#     vehicle.destroy
 # end

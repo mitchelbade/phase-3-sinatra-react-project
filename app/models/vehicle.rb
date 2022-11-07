@@ -1,4 +1,4 @@
-class VehicleModel < ActiveRecord::Base 
+class Vehicle < ActiveRecord::Base 
     belongs_to :manufacturer
 
     # scope :created_before, ->(time) { where('created_at < ?', time) }

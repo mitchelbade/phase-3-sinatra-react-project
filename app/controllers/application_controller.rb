@@ -47,9 +47,6 @@ class ApplicationController < Sinatra::Base
   patch '/vehicles/:id' do
     vehicle = Vehicle.find(params[:id])
     vehicle.update(
-      name: params[:name],
-      body_type: params[:body_type],
-      years_made: params[:years_made],
       description: params[:description],
     )
     vehicle.to_json

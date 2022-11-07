@@ -38,7 +38,7 @@ puts "🌱 Seeding spices..."
                 name: Faker::Vehicle.model, 
                 body_type: Faker::Vehicle.car_type, 
                 years_made: Faker::Vehicle.year, 
-                description: '', 
+                description: Faker::Lorem.sentence,
                 manufacturer_id: manufacturer.id,
             )
         end

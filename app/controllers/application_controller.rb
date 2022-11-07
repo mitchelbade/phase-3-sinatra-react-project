@@ -29,23 +29,26 @@ class ApplicationController < Sinatra::Base
 
   get '/vehicles' do
     vehicles = Vehicle.all 
-    vehicles.to_json
+    vehicles.to_json(include: [:manufacturer])
   end
 
   post '/vehicles/new' do 
+    manufacturer = Manufacturer.find_by(name: params[:manufacture_name])
     vehicle = Vehicle.create(
       name: params[:name],
-      type: params[:type],
+      body_type: params[:body_type],
       years_made: params[:years_made],
       description: params[:description],
+      manufacturer: manufacturer,
     )
+    vehicle.to_json
   end
 
   patch '/vehicles/:id' do
     vehicle = Vehicle.find(params[:id])
     vehicle.update(
       name: params[:name],
-      type: params[:type],
+      body_type: params[:body_type],
       years_made: params[:years_made],
       description: params[:description],
     )
